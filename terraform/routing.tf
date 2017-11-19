@@ -11,4 +11,21 @@ resource "aws_route_table" "public" {
   }
 }
 
+# node-a association
+resource "aws_route_table_association" "node-a" {
+  subnet_id      = "${ aws_subnet.node-a.id }"
+  route_table_id = "${ aws_route_table.public.id }"
+}
+
+# node-b association
+resource "aws_route_table_association" "node-b" {
+  subnet_id      = "${ aws_subnet.node-b.id }"
+  route_table_id = "${ aws_route_table.public.id }"
+}
+
+# node-c association
+resource "aws_route_table_association" "node-c" {
+  subnet_id      = "${ aws_subnet.node-c.id }"
+  route_table_id = "${ aws_route_table.public.id }"
+}
 
