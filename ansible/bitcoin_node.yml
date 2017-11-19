@@ -17,6 +17,6 @@
     - role: instance.packages
     - role: instance.docker
     - role: instance.prometheus_node_exporter
-    - role: instance.bitcoin
+    - role: instance.bitcoind
       tags:
         - bit
