@@ -1,0 +1,3 @@
+---
+volume_path: /data
+bitcoin_docker_image: bcawthra/bitcoind:latest

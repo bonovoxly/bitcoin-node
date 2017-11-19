@@ -1,0 +1,25 @@
+---
+# tasks file for instance.bitcoind
+- name: Docker pull image.
+  shell: docker pull {{ bitcoind_docker_image }}
+
+- name: Create the {{ volume_path }}/bitcoin directory.
+  file:
+    path: "{{ volume_path }}/bitcoind"
+    state: directory
+
+- name: Template bitcoind systemd file.
+  template:
+    src: bitcoind.service.j2
+    dest: /etc/systemd/system/bitcoind.service
+
+- name: systemctl daemon-reload.
+  command: systemctl daemon-reload
+  changed_when: false
+
+- name: Start the bitcoind service.
+  services:
+    name: bitcoind
+    state: started
+    enabled: yes
+

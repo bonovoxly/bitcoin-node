@@ -1,0 +1,22 @@
+# bitcoin_node_deploy.yml
+# Initial raw configuration
+- hosts: bitcoin-node*
+  become: yes
+  gather_facts: no
+  user: ubuntu
+  roles:
+    - role: ubuntu.raw_install_python
+
+- hosts: bitcoin-node*
+  become: yes
+  gather_facts: yes
+  user: ubuntu
+  roles:
+    - role: instance.ssh_aws_public_key
+    - role: instance.hosts
+    - role: instance.packages
+    - role: instance.docker
+    - role: instance.prometheus_node_exporter
+    - role: instance.bitcoin
+      tags:
+        - bit

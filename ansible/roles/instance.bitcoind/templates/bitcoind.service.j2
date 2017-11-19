@@ -1,0 +1,20 @@
+[Unit]
+Description=bitcoind
+After=docker.service
+RequiresMountsFor={{ volume_path }}
+
+[Service]
+ExecStartPre=-/usr/bin/docker rm bitcoind
+ExecStart=/usr/bin/docker run \
+  -p 8332:8332 \
+  -p 8333:8333 \
+  --name bitcoind \
+  -v {{ volume_path }}/bitcoind/data:/data \
+  {{ bitcoind_docker_image }}
+ExecStop=-/usr/bin/docker stop bitcoind
+
+Restart=on-failure
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
