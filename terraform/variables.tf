@@ -18,6 +18,12 @@ variable "keypair" {
   default = "dev"
 }
  
+# Instance type to use 
+variable "type" {
+  type    = "string"
+  default = "t2.micro"
+}
+
 # AWS region
 variable "region" {
   type    = "string"
