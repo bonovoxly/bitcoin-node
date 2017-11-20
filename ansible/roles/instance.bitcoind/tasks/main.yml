@@ -18,7 +18,7 @@
   changed_when: false
 
 - name: Start the bitcoind service.
-  services:
+  service:
     name: bitcoind
     state: started
     enabled: yes
