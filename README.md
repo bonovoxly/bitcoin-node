@@ -43,6 +43,4 @@ terraform apply
 If you find this useful and want to contribute:
 
 - BTC: `161a2z4A5J5ndVyytBXroN8hGcf6Cc8RA5`
-![Bitcoin](https://blog.billyc.io/img/bitcoin.png)
 - Litecoin: `LMGHysobMGv9dWUg1s6CDYP78HSasX8gTp`
-![Litecoin](https://blog.billyc.io/img/litecoin.png)
