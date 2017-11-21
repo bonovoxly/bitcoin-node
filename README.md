@@ -1,6 +1,8 @@
 # bitcoin-node
 
-This project deploys a Bitcoin node to AWS, using Terraform (and a little Ansible). It's meant to help users quickly run a full Bitcoin node, in a very automated fashion.
+This project deploys a Bitcoin node to AWS, using Terraform (and a little Ansible). It's meant to help users quickly run a full Bitcoin node, in a very automated fashion. It currently deploys a t2.micro instance with 250 GB disk (for the Bitcoin blockchain).
+
+It was more of an ansible-pull experiment. Hopefully I'll extend this to other clouds and blockchains in the near future.
 
 # Requirements
 
@@ -31,6 +33,7 @@ terraform apply
 ```
 
 - And wait a few minutes. If all goes according to play, there should be an instance in us-east-1a that is syncing up with the Bitcoin network and will be destined to operate as a full node.
+- This is the part where ansible-pull is automagically run on the instance. The instance will pull this repository and run the [bitcoin_node.yml](https://github.com/bonovoxly/bitcoin-node/tree/master/ansible) playbook to configure the instance and start bitcoind.
 
 # Thanks and Links
 
