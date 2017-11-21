@@ -4,6 +4,8 @@ This project deploys a Bitcoin node to AWS, using Terraform (and a little Ansibl
 
 It was more of an ansible-pull experiment. Hopefully I'll extend this to other clouds and blockchains in the near future.
 
+[Full blog post can be found here](https://blog.billyc.io/2017/11/20/deploying-a-bitcoin-node-using-terraform-and-ansible-pull/).
+
 # Requirements
 
 - An AWS account.
