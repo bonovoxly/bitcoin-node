@@ -43,8 +43,6 @@ terraform apply
 - Thanks to [James for the super simple Dockerfile that I forked.](https://github.com/jamesob/docker-bitcoind)
 - ansible-pull reference - <https://docs.ansible.com/ansible/2.4/ansible-pull.html>
 
-# Tips
-
 If you find this useful and want to contribute:
 
 - BTC: `161a2z4A5J5ndVyytBXroN8hGcf6Cc8RA5`
