@@ -10,6 +10,7 @@ It was more of an ansible-pull experiment. Hopefully I'll extend this to other c
 
 - An AWS account.
 - [AWS access and secret keys associated with that account](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys).
+- An SSH public key uploaded to the AWS account. This defaults to the name `dev`.
 - Terraform v0.10.6 or later.
 
 # Deployment
