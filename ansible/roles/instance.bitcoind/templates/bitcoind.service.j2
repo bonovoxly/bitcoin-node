@@ -1,15 +1,14 @@
 [Unit]
 Description=bitcoind
 After=docker.service
-RequiresMountsFor={{ volume_path }}
 
 [Service]
+ExecStartPre=-/usr/bin/docker pull {{ bitcoind_docker_image }}
 ExecStartPre=-/usr/bin/docker rm bitcoind
 ExecStart=/usr/bin/docker run \
-  -p 8332:8332 \
-  -p 8333:8333 \
+  --net host \
   --name bitcoind \
-  -v {{ volume_path }}/bitcoind/data:/data \
+  -v {{ volume_path }}/bitcoind/data:/bitcoin \
   {{ bitcoind_docker_image }}
 ExecStop=-/usr/bin/docker stop bitcoind
 
