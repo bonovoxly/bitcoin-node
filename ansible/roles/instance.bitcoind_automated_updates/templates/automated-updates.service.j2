@@ -1,0 +1,12 @@
+[Unit]
+Description=bitcoin-node stop, update, and reboot service.
+
+[Service]
+Type=simple
+Restart=no
+ExecStart=/usr/bin/systemctl stop bitcoind && \
+            /usr/bin/apt-get full-upgrade -y && \
+            /usr/bin/apt-get auto-remove && \
+            /sbin/reboot
+[Install]
+WantedBy=multi-user.target

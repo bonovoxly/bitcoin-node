@@ -19,3 +19,4 @@
     - role: instance.bitcoind
       tags:
         - bit
+    - role: instance.bitcoind_automated_updates

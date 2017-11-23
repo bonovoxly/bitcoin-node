@@ -6,14 +6,18 @@ It was more of an ansible-pull experiment. Hopefully I'll extend this to other c
 
 [My full blog post can be found here](https://blog.billyc.io/2017/11/20/deploying-a-bitcoin-node-using-terraform-and-ansible-pull/).
 
-# Requirements
+# AWS
 
-- An AWS account.
+These are the instructions for deploying to AWS.
+
+## Requirements
+
+- [An AWS account](https://aws.amazon.com/resources/create-account/).
 - [AWS access and secret keys associated with that account](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys).
 - An SSH public key uploaded to the AWS account. This defaults to the name `dev`.
 - Terraform v0.10.6 or later.
 
-# Deployment
+## Deployment
 
 - Set your AWS access and secret keys as environment variables:
 
@@ -37,6 +41,21 @@ terraform apply
 
 - And wait a few minutes. If all goes according to play, there should be an instance in us-east-1a that is syncing up with the Bitcoin network and will be destined to operate as a full node.
 - This is the part where ansible-pull is automagically run on the instance. The instance will pull this repository and run the [bitcoin_node.yml](https://github.com/bonovoxly/bitcoin-node/tree/master/ansible) playbook to configure the instance and start bitcoind.
+
+# Gcloud
+
+Instructions on deploying a Bitcoin node to Gcloud
+
+## Requirements
+
+- [A Gcloud account](https://cloud.google.com/).
+- A Google Cloud project. In this case, create one called "bitcoin-node".
+- [Follow these instructions to create a Service Account](https://www.terraform.io/docs/providers/google/index.html#authentication-json-file).
+- Move the JSON file to `~/.config/bitcoin-node.json`.
+
+## Deployment
+
+TBD
 
 # Thanks and Links
 
