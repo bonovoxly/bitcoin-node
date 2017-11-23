@@ -1,0 +1,10 @@
+[Unit]
+Description=Runs the Bitcoin updater.
+
+[Timer]
+OnCalendar=daily
+RandomizedDelaySec=21600
+Unit=automated-updates.service
+
+[Install]
+WantedBy=multi-user.target
