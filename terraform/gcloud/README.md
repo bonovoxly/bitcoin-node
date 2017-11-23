@@ -1,5 +1,9 @@
 # Instructions on Setting up Google Cloud
 
+The following deploys an Ubuntu 16.04 LTS f1.micro Google Cloud Compute Engine VM. It automatically installs Docker and a [bitcoind Docker image](https://hub.docker.com/r/bcawthra/bitcoind/). It automatically updates daily, both Ubuntu patches and pulling a new Docker image.
+
+Please note...  the default uses the free `f1.micro` instance. This is a .6 GB RAM system.  It's not great. It would be recommended to edit the [variables.tf](https://github.com/bonovoxly/bitcoin-node/blob/master/terraform/gcloud/variables.tf) and use a `g1.small`, which is a 1.7 GB RAM system.
+
 ## Requirements 
 
 These instructions assume that you:
@@ -66,13 +70,16 @@ export GOOGLE_CREDENTIALS=$(cat ~/.config/bitcoin-node-terraform.json)
 export GOOGLE_PROJECT=bitcoin-node-<NUMBER>
 ```
 
+- And that should be it! Now to Terraform...
 
 ```
-export TF_VAR_org_id=YOUR_ORG_ID
-export TF_VAR_billing_account=YOUR_BILLING_ACCOUNT_ID
-export TF_ADMIN=${USER}-terraform-admin
-export TF_CREDS=~/.config/gcloud/terraform-admin.json
+terraform init
+terraform plan
+terraform apply
 ```
+
+Note the above will ask you for your project ID (the `bitcoin-node-<NUMBER>`). You can add a `default` value in the `variables.tf` file to remove this prompt. Once deployed, you'll have a full node syncing up with the Bitcoin network. [Head to the Google Cloud Compute page to monitor the newly created bitcoin-node instance](https://console.cloud.google.com/compute).
+
 
 # Links
 
