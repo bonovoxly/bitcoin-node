@@ -1,0 +1,79 @@
+# Instructions on Setting up Google Cloud
+
+## Requirements 
+
+These instructions assume that you:
+
+- have a Google Cloud account
+- have the Google Cloud SDK installed and configured.
+- Terraform version 0.10.X or 0.11.X
+
+### Google Configuration
+
+These instructions are based loosely on [Google's recommended instructions](https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform).
+
+Albeit, slightly different... Assuming you have gcloud setup properly and ready to go:
+
+- Create the project:
+
+```
+gcloud projects create bitcoin-node
+```
+
+- You may need to get the project ID.  it's a unique identifier to the project name.  [It can be found on the Google Cloud Platform web interface](https://console.cloud.google.com/home), or through the SDK:
+
+```
+gcloud projects list
+```
+
+- Set it to the default (useful for future commands):
+
+```
+gcloud config set project bitcoin-node-<NUMBER>
+```
+
+- Next you'll need your billing account ID.  [It can be found on the Google Cloud Platform billing page](https://console.cloud.google.com/billing), or through the SDK:
+
+```
+gcloud alpha billing accounts list
+```
+
+- Now, we can enable billing for that project:
+
+```
+gcloud beta billing projects link bitcoin-node-<NUMBER> --billing-account <BILLING-ACCOUNT-NUMBER>
+```
+
+- Configure the Terraform service account. [It can be found on the Google Cloud Platform IAM page](https://console.cloud.google.com/iam-admin/serviceaccounts), or through the SDK:
+
+```
+gcloud iam service-accounts create bitcoin-node-terraformm --display-name "Bitcoin-node Terraform account"
+gcloud iam service-accounts keys create ~/.config/bitcoin-node-terraform.json --iam-account bitcoin-node-terraform@bitcoin-node-<NUMBER>.iam.gserviceaccount.com
+gcloud projects add-iam-policy-binding bitcoin-node-<NUMBER> --member serviceAccount:bitcoin-node-terraform@bitcoin-node-<NUMBER>.iam.gserviceaccount.com --role roles/viewer
+```
+
+- Enable the Compute API -
+ 
+```
+gcloud services enable compute.googleapis.com
+```
+
+- (Skipping over the remote storage for Terraform for now;  will add later).
+- Configure environment variables:
+
+```
+export GOOGLE_CREDENTIALS=$(cat ~/.config/bitcoin-node-terraform.json)
+export GOOGLE_PROJECT=bitcoin-node-<NUMBER>
+```
+
+
+```
+export TF_VAR_org_id=YOUR_ORG_ID
+export TF_VAR_billing_account=YOUR_BILLING_ACCOUNT_ID
+export TF_ADMIN=${USER}-terraform-admin
+export TF_CREDS=~/.config/gcloud/terraform-admin.json
+```
+
+# Links
+
+- Google's Terraform instructions - <https://cloud.google.com/community/tutorials/managing-gcp-projects-with-terraform>

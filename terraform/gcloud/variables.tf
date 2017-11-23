@@ -15,19 +15,20 @@ variable "cidr" {
 # Instance type to use 
 variable "type" {
   type    = "string"
-  default = "t2.micro"
+  default = "f1-micro"
 }
 
-variable "project_name" {
-  description = "The ID of the Google Cloud project"
+variable "project" {
+  type    = "string"
+  description = "The Google Cloud project ID. Example: bitcoin-node-186802"
 }
 
 variable "region" {
+  type    = "string"
   default = "us-west1"
 }
 
 variable "region_zone" {
+  type    = "string"
   default = "us-west1-a"
-}
-
 }
