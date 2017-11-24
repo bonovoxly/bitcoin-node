@@ -80,6 +80,12 @@ terraform apply
 
 Note the above will ask you for your project ID (the `bitcoin-node-<NUMBER>`). You can add a `default` value in the `variables.tf` file to remove this prompt. Once deployed, you'll have a full node syncing up with the Bitcoin network. [Head to the Google Cloud Compute page to monitor the newly created bitcoin-node instance](https://console.cloud.google.com/compute).
 
+To SSH to your instance, you can use the gcloud interface:
+
+```
+gcloud compute --project "bitcoin-node-<NUMBER>" ssh --zone "us-west1-a" "bitcoin-node"
+```
+
 
 # Links
 
