@@ -15,7 +15,7 @@ variable "cidr" {
 # Instance type to use 
 variable "type" {
   type    = "string"
-  default = "f1-micro"
+  default = "g1-small"
 }
 
 variable "project" {
