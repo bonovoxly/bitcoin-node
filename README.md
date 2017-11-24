@@ -4,7 +4,8 @@ This project deploys a Bitcoin node to AWS, using Terraform (and a little Ansibl
 
 It was more of an ansible-pull experiment. Hopefully I'll extend this to other clouds and blockchains in the near future.
 
-[My full blog post can be found here](https://blog.billyc.io/2017/11/20/deploying-a-bitcoin-node-using-terraform-and-ansible-pull/).
+[The big AWS blog post can be found here](https://blog.billyc.io/2017/11/20/deploying-a-bitcoin-node-using-terraform-and-ansible-pull/).
+[Quick Google Cloud summary blog post can be found here](https://blog.billyc.io/2017/11/23/deploying-a-bitcoin-node-to-google-cloud-using-terraform-and-ansible-pull/).
 
 # AWS
 
@@ -12,7 +13,7 @@ This deploys a t2.micro instance with 250 GB of hard drive space to AWS using Te
 
 # Google Cloud Plathform
 
-This deploys a `f1.micro` instance with 250 GB of hard drive space to Google Cloud using Terraform and ansible-pull. [Instructions on deploying a Bitcoin node to Google Cloud can be found here](https://github.com/bonovoxly/bitcoin-node/tree/master/terraform/gcloud).
+This deploys a `g1.small` instance with 250 GB of hard drive space to Google Cloud using Terraform and ansible-pull. [Instructions on deploying a Bitcoin node to Google Cloud can be found here](https://github.com/bonovoxly/bitcoin-node/tree/master/terraform/gcloud).
 
 # Thanks and Links
 
