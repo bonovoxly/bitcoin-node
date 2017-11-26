@@ -8,6 +8,12 @@
     - 10periodic
     - 20auto-upgrades
 
+- name: Template the updater script.
+  template:
+    src: update.sh.j2
+    dest: /usr/local/sbin/update.sh
+    mode: u+rwx
+
 - name: Create automated update systemd files.
   template:
     src: "{{ item }}.j2"

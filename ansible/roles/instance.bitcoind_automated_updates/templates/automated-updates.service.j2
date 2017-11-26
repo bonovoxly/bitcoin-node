@@ -4,9 +4,6 @@ Description=bitcoin-node stop, update, and reboot service.
 [Service]
 Type=simple
 Restart=no
-ExecStart=/usr/bin/systemctl stop bitcoind && \
-            /usr/bin/apt-get full-upgrade -y && \
-            /usr/bin/apt-get auto-remove && \
-            /sbin/reboot
+ExecStart=/usr/local/sbin/update.sh
 [Install]
 WantedBy=multi-user.target
