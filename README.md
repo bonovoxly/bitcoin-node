@@ -24,4 +24,5 @@ This deploys a `g1.small` instance with 250 GB of hard drive space to Google Clo
 If you find this useful and want to contribute:
 
 - BTC: `161a2z4A5J5ndVyytBXroN8hGcf6Cc8RA5`
+- Ethereum: `0x9de200ba61af4a58c9fced2c1334110087a75f51`
 - Litecoin: `LMGHysobMGv9dWUg1s6CDYP78HSasX8gTp`
