@@ -3,7 +3,6 @@
 - name: enable_automated_updates
   command: systemctl enable {{ item }}
   with_items:
-    - automated-updates.service
     - automated-updates.timer
   notify:
     - restart_automated_updates_timer
