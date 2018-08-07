@@ -11,7 +11,7 @@ It was more of an ansible-pull experiment. Hopefully I'll extend this to other c
 
 This deploys a t2.micro instance with 250 GB of hard drive space to AWS using Terraform and ansible-pull. [Instructions on deploying a Bitcoin node to Google Cloud can be found here](https://github.com/bonovoxly/bitcoin-node/tree/master/terraform/aws).
 
-# Google Cloud Plathform
+# Google Cloud Platform
 
 This deploys a `g1.small` instance with 250 GB of hard drive space to Google Cloud using Terraform and ansible-pull. [Instructions on deploying a Bitcoin node to Google Cloud can be found here](https://github.com/bonovoxly/bitcoin-node/tree/master/terraform/gcloud).
 
